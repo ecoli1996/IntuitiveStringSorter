@@ -1,1 +1,2 @@
 # IntuitiveSorter
+# IntuitiveStringSorter

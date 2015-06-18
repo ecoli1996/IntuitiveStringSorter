@@ -14,6 +14,7 @@ public class ComparatorImpl implements Comparator<String> {
     private boolean isDigit(char ch) {
         int asciiVal = (int) ch;
         
+        //The ASCII values for digits 0-9 range from 48-57. 
         return asciiVal >= 48 && asciiVal <= 57;
     }
     

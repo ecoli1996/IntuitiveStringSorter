@@ -18,24 +18,24 @@ public class IntuititiveSortDriver {
         listOfStrings.add("abc");
 
         
-        IntuitiveSorter iSort1 = new IntuitiveSorter(listOfStrings);
-        iSort1.sort();
-        System.out.println(iSort1.toString());
+        listOfStrings = IntuitiveStringSorter.sort(listOfStrings, true);
+        System.out.println(listOfStrings.toString());
         
-        iSort1.isAscending(false);
-        System.out.println(iSort1.toString());
+        listOfStrings = IntuitiveStringSorter.sort(listOfStrings, false);
+        System.out.println(listOfStrings.toString());
         
         
+        ArrayList<String> stringList;
         
         String[] list2 = {"1z1","1z2","1z14","1d","1c","1b","foo 03","foo 00003"};
-        IntuitiveSorter iSort2 = new IntuitiveSorter(list2);
-        iSort2.sort();
-        System.out.println(iSort2.toString());
+        stringList = IntuitiveStringSorter.sort(list2, true);
+        System.out.println(stringList.toString());
         
-        iSort2.isAscending(false);
-        System.out.println(iSort2.toString());
+        stringList = IntuitiveStringSorter.sort(list2, false);
+        System.out.println(stringList.toString());
         
         
     }
+
 
 }

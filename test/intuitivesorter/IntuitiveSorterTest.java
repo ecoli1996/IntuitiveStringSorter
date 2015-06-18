@@ -3,7 +3,6 @@ package intuitivesorter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,15 +43,15 @@ public class IntuitiveSorterTest {
     @Test
     public void testSort() {
         System.out.println("sort");
+        ArrayList<String> result;
+        ArrayList<String> expResult;
+        
         String[] listOfStrings = {"1z1","1z2","1z14","1d","1c","1b","foo 03","foo 00003"};
-        IntuitiveSorter instance = new IntuitiveSorter(listOfStrings);
-        instance.sort();
+        result = IntuitiveStringSorter.sort(listOfStrings, true);
         
-        ArrayList<String> result = instance.getList();
+        String[] list2 = {"1b", "1c", "1d", "1z1", "1z2", "1z14", "foo 00003", "foo 03"};
+        expResult = new ArrayList<>(Arrays.asList(list2));
         
-        ArrayList<String> expResult = new ArrayList<>(Arrays.asList(listOfStrings));
-        ComparatorImpl comparator = new ComparatorImpl();
-        Collections.sort(expResult, comparator);
         
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

@@ -1,6 +1,8 @@
 
+
 package intuitivesorter;
 
+import java.math.BigInteger;
 import java.util.Comparator;
 
 /**
@@ -69,8 +71,9 @@ public class ComparatorImpl implements Comparator<String> {
         boolean returnValueFound = false;
         boolean indexInBounds = (index < string1.length()) && (index < string2.length());
         
-        int number1;
-        int number2;
+        BigInteger number1;
+        BigInteger number2;
+        BigInteger difference;
         String numberString;
         
         //If the strings aren't equal, then find out which one is lexiographically
@@ -87,11 +90,12 @@ public class ComparatorImpl implements Comparator<String> {
                 //  and compare the two integers.
                 if(isDigit(string1.charAt(index)) && isDigit(string2.charAt(index))) {
                     numberString = getNumberString(string1, index);
-                    number1 = Integer.parseInt(numberString);
-                    number2 = Integer.parseInt(getNumberString(string2, index));
+                    number1 = BigInteger.valueOf(Integer.parseInt(numberString));
+                    number2 = BigInteger.valueOf(Integer.parseInt(getNumberString(string2, index)));
 
                     if (number1 != number2) {
-                        returnValue = number1 - number2;
+                        difference = number1.subtract(number2);
+                        returnValue = difference.intValue();
                         returnValueFound = true;
                     }
 
@@ -107,7 +111,10 @@ public class ComparatorImpl implements Comparator<String> {
                     //If the characters aren't equal, then return the difference 
                     // of their ASCII values
                     if(string1.charAt(index) != string2.charAt(index)) {
-                        returnValue = (int)string1.charAt(index) - (int)string2.charAt(index);
+                        BigInteger ascii1 = BigInteger.valueOf((int)string1.charAt(index));
+                        BigInteger ascii2 = BigInteger.valueOf((int)string2.charAt(index));
+                        difference = ascii1.subtract(ascii2);
+                        returnValue = difference.intValue();
                         returnValueFound = true;
                     }
                     
@@ -128,12 +135,9 @@ public class ComparatorImpl implements Comparator<String> {
         //  until that index. Thus, we return the difference of the 
         //  length of the two strings.
         if (!indexInBounds) {
-            returnValue = string1.length() - string2.length();
+            difference = BigInteger.valueOf(string1.length()).subtract(BigInteger.valueOf(string2.length()));
+            returnValue = difference.intValue();
         }
         
         return returnValue;
     }
-
-   
-    
-}

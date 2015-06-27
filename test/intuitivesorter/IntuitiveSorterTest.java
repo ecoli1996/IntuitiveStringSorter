@@ -49,7 +49,7 @@ public class IntuitiveSorterTest {
         String[] listOfStrings = {"1z1","1z2","1z14","1d","1c","1b","foo 03","foo 00003"};
         result = IntuitiveStringSorter.sort(listOfStrings, true);
         
-        String[] list2 = {"1b", "1c", "1d", "1z1", "1z2", "1z14", "foo 00003", "foo 03"};
+        String[] list2 = {"1b", "1c", "1d", "1z1", "1z2", "1z14", "foo 03", "foo 00003"};
         expResult = new ArrayList<>(Arrays.asList(list2));
         
         

@@ -74,7 +74,8 @@ public class ComparatorImpl implements Comparator<String> {
         BigInteger number1;
         BigInteger number2;
         BigInteger difference;
-        String numberString;
+        String numberString1;
+        String numberString2;
         
         //If the strings aren't equal, then find out which one is lexiographically
         // greater than the other. Otherwise the value of 0 will be returned.
@@ -89,18 +90,19 @@ public class ComparatorImpl implements Comparator<String> {
                 //  digits in each string, starting at the "index" value,
                 //  and compare the two integers.
                 if(isDigit(string1.charAt(index)) && isDigit(string2.charAt(index))) {
-                    numberString = getNumberString(string1, index);
-                    number1 = BigInteger.valueOf(Integer.parseInt(numberString));
-                    number2 = BigInteger.valueOf(Integer.parseInt(getNumberString(string2, index)));
+                    numberString1 = getNumberString(string1, index);
+                    numberString2 = getNumberString(string2, index);
+                    number1 = new BigInteger(numberString1);
+                    number2 = new BigInteger(numberString2);
 
-                    if (number1 != number2) {
+                    if (!number1.equals(number2)) {
                         difference = number1.subtract(number2);
                         returnValue = difference.intValue();
                         returnValueFound = true;
                     }
 
                     else {
-                        index += numberString.length();
+                        index += numberString1.length();
                     }
                 }
                 

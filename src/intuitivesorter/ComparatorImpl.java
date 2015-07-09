@@ -79,7 +79,7 @@ public class ComparatorImpl implements Comparator<String> {
         
         //If the strings aren't equal, then find out which one is lexiographically
         // greater than the other. Otherwise the value of 0 will be returned.
-        if (!string1.equals(string2)) {
+        if (string1.compareTo(string2) != 0) {
             
             //While we haven't iterated through one of the entire strings and we haven't
             //  determined the lexiographic order, continue comparing each character of
@@ -95,7 +95,7 @@ public class ComparatorImpl implements Comparator<String> {
                     number1 = new BigInteger(numberString1);
                     number2 = new BigInteger(numberString2);
 
-                    if (!number1.equals(number2)) {
+                    if (number1.compareTo(number2) != 0) {
                         difference = number1.subtract(number2);
                         returnValue = difference.intValue();
                         returnValueFound = true;

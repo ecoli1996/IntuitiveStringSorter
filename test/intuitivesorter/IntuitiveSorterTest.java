@@ -46,7 +46,7 @@ public class IntuitiveSorterTest {
         ArrayList<String> result;
         ArrayList<String> expResult;
         
-        String[] listOfStrings = {"1z1","1z2","1z14","1d","1c","1b","foo 03","foo 00003", "foo 21474836472147483647", "foo 21474836472147483648"};
+        String[] listOfStrings = {"1z1","1z2","1z14","1d","1c","1b","foo 03","foo 00003", "foo 21474836472147483648", "foo 21474836472147483647"};
         result = IntuitiveStringSorter.sort(listOfStrings, true);
         
         String[] list2 = {"1b", "1c", "1d", "1z1", "1z2", "1z14", "foo 03", "foo 00003", "foo 21474836472147483647", "foo 21474836472147483648"};
